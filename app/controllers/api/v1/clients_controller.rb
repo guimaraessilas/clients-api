@@ -8,7 +8,7 @@ module Api
 
             def show
                 client = Client.find(params[:id])
-                render json: {status: 'SUCCESS', message: 'Client founded.', data:client}, status: :ok
+                render json: {status: 'SUCCESS', message: 'Client found.', data:client}, status: :ok
             end
 
             def create
@@ -16,7 +16,7 @@ module Api
                 if client.save
                     render json: {status: 'SUCCESS', message: 'Client added.', data:client}, status: :ok
                 else
-                    render json: {status: 'ERROR', message: 'Can not add the client.', data:client.err}, status: :unprocessable_entity
+                    render json: {status: 'ERROR', message: 'Could not add the client.', data:client.err}, status: :unprocessable_entity
                 end
             end
 
@@ -25,7 +25,7 @@ module Api
                 if client.update_attributes(client_params)
                     render json: {status: 'SUCCESS', message: 'Client updated.', data:client}, status: :ok
                 else
-                    render json: {status: 'ERROR', message: 'Can not update client.', data:client}, status: :unprocessable_entity
+                    render json: {status: 'ERROR', message: 'Could not update client.', data:client}, status: :unprocessable_entity
                 end
             end
 
